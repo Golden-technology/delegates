@@ -23,18 +23,20 @@
                             <td>
                                 <th class="border-top-0">خيارات</th>
                                 <td>
-                                    <button 
-                                    class="btn btn-warning btn-sm update delegate"
-                                    data-bs-toggle="modal" 
-                                    data-bs-target="#delegateModal"
-                                    data-name="{{ $delegate->name }}"
-                                    data-phone="{{ $delegate->phone }}"
-                                    data-address="{{ $delegate->address }}"
-                                    data-action="{{ route('delegates.update', $delegate->id) }}"
-                                    >
-                                        <i class="fa fa-edit"></i> 
-                                        تعديل
-                                    </button>
+                                    @permission('delegates-update')
+                                        <button 
+                                        class="btn btn-warning btn-sm update delegate"
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#delegateModal"
+                                        data-name="{{ $delegate->name }}"
+                                        data-phone="{{ $delegate->phone }}"
+                                        data-address="{{ $delegate->address }}"
+                                        data-action="{{ route('delegates.update', $delegate->id) }}"
+                                        >
+                                            <i class="fa fa-edit"></i> 
+                                            تعديل
+                                        </button>
+                                    @endpermission
                                 </td>
                             </td>
                         </tr>

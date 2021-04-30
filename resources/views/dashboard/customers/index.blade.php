@@ -6,12 +6,14 @@
         <div class="white-box">
             <h3 class="box-title">
                 قائمة العملاء
+                @permission('customers-create')
                 <button 
                 class="btn btn-primary btn-sm left customer"
                 data-bs-toggle="modal"
                 data-bs-target="#customerModal">
                 <i class="fa fa-plus"> اضافة</i>
                 </button>
+                @endpermission
             </h3>
             <div class="table-responsive">
                 <table class="table text-nowrap">
@@ -34,8 +36,10 @@
                                 <td>{{ $customer->address }}</td>
                                 <td>{{ $customer->status ? 'نعم' : 'لا' }}</td>
                                 <td>
+                                    @permission('customers-read')
                                     <a href="{{ route('customers.show', $customer->id) }}" class="btn btn-info btn-sm text-white"><i class="fa fa-eye"></i> عرض</a>
-                                    
+                                    @endpermission
+                                    @permission('customers-update')
                                     <button 
                                     class="btn btn-warning btn-sm customer update"
                                     data-bs-toggle="modal"
@@ -48,6 +52,7 @@
                                         <i class="fa fa-edit"></i> 
                                         تعديل
                                     </button>
+                                    @endpermission
                                 </td>
                             </tr>
                         @endforeach

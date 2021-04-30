@@ -59,8 +59,10 @@
                                 <td>{{ $customer->phone }}</td>
                                 <td>{{ $customer->address }}</td>
                                 <td>
+                                    @permission('companies-read')
                                     <a href="{{ route('customers.show', $customer->id) }}" class="btn btn-info btn-sm text-white"><i class="fa fa-eye"></i> عرض</a>
-
+                                    @endpermission
+                                    @permission('companies-update')
                                     <button 
                                     class="btn btn-warning btn-sm customer"
                                     data-bs-toggle="modal" 
@@ -72,6 +74,7 @@
                                         <i class="fa fa-edit"></i> 
                                         تعديل
                                     </button>
+                                    @endpermission
                                 </td>
                             </tr>
                         @endforeach

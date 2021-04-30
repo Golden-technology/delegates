@@ -6,12 +6,14 @@
         <div class="white-box">
             <h3 class="box-title">
                 قائمة المناديب
+                @permission('delegates-create')
                 <button 
                 class="btn btn-primary btn-sm left delegate"
                 data-bs-toggle="modal"
                 data-bs-target="#delegateModal">
                 <i class="fa fa-plus"> اضافة</i>
                 </button>
+                @endpermission
             </h3>
             <div class="table-responsive">
                 <table class="table text-nowrap">
@@ -32,8 +34,10 @@
                                 <td>{{ $delegate->phone }}</td>
                                 <td>{{ $delegate->address }}</td>
                                 <td>
+                                    @permission('delegates-read')
                                     <a href="{{ route('delegates.show', $delegate->id) }}" class="btn btn-info btn-sm text-white"><i class="fa fa-eye"></i> عرض</a>
-                                    
+                                    @endpermission
+                                    @permission('delegates-update')
                                     <button 
                                     class="btn btn-warning btn-sm delegate update"
                                     data-bs-toggle="modal"
@@ -46,6 +50,7 @@
                                         <i class="fa fa-edit"></i> 
                                         تعديل
                                     </button>
+                                    @endpermission
                                 </td>
                             </tr>
                         @endforeach

@@ -12,6 +12,7 @@
                         <span class="hide-menu">لوحة التحكم</span>
                     </a>
                 </li>
+                @permission('companies-read')
                 <li class="sidebar-item">
                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('companies.index') }}"
                         aria-expanded="false">
@@ -19,6 +20,8 @@
                         <span class="hide-menu">الشركات</span>
                     </a>
                 </li>
+                @endpermission
+                @permission('customers-read')
                 <li class="sidebar-item">
                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('customers.index') }}"
                         aria-expanded="false">
@@ -26,6 +29,8 @@
                         <span class="hide-menu">العملاء</span>
                     </a>
                 </li>
+                @endpermission
+                @permission('delegates-read')
                 <li class="sidebar-item">
                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('delegates.index') }}"
                         aria-expanded="false">
@@ -33,6 +38,8 @@
                         <span class="hide-menu">المناديب</span>
                     </a>
                 </li>
+                @endpermission
+                @permission('users-read')
                 <li class="sidebar-item">
                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('users.index') }}"
                         aria-expanded="false">
@@ -40,6 +47,7 @@
                         <span class="hide-menu">المستخدمين</span>
                     </a>
                 </li>
+                @endpermission
                 
             </ul>
 

@@ -6,11 +6,13 @@
         <div class="white-box">
             <h3 class="box-title">
                 قائمة المستخدمين
-                <a 
-                href="{{ route('users.create') }}"
-                class="btn btn-primary btn-sm left">
-                <i class="fa fa-plus"> اضافة</i>
-                </a>
+                @permission('users-create')
+                    <a 
+                    href="{{ route('users.create') }}"
+                    class="btn btn-primary btn-sm left">
+                    <i class="fa fa-plus"> اضافة</i>
+                    </a>
+                @endpermission
             </h3>
             <div class="table-responsive">
                 <table class="table text-nowrap">
@@ -30,13 +32,15 @@
                                 <td>{{ $user->phone }}</td>
                                 <td>
                                     {{-- <a href="{{ route('users.show', $user->id) }}" class="btn btn-info btn-sm text-white"><i class="fa fa-eye"></i> عرض</a> --}}                                    
+                                    @permission('users-update')
                                     <a 
                                     class="btn btn-warning btn-sm user update"
                                     href="{{ route('users.edit', $user->id) }}"
                                     >
                                         <i class="fa fa-edit"></i> 
                                         تعديل
-                                </a>
+                                    </a>
+                                    @endpermission
                                 </td>
                             </tr>
                         @endforeach

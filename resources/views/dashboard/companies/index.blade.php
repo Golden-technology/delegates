@@ -23,19 +23,23 @@
                                 <td>{{ $company->name }}</td>
                                 <td>{{ $company->address }}</td>
                                 <td>
-                                    <a href="{{ route('companies.show', $company->id) }}" class="btn btn-info btn-sm text-white"><i class="fa fa-eye"></i> عرض</a>
-                                    
-                                    <button 
-                                    class="btn btn-warning btn-sm company"
-                                    data-bs-toggle="modal" 
-                                    data-bs-target="#companyModal"
-                                    data-name="{{ $company->name }}"
-                                    data-address="{{ $company->address }}"
-                                    data-action="{{ route('companies.update', $company->id) }}"
-                                    >
-                                        <i class="fa fa-edit"></i> 
-                                        تعديل
-                                    </button>
+                                    @permission('companies-read')
+                                        <a href="{{ route('companies.show', $company->id) }}" class="btn btn-info btn-sm text-white"><i class="fa fa-eye"></i> عرض</a>
+                                    @endpermission
+
+                                    @permission('companies-update')
+                                        <button 
+                                        class="btn btn-warning btn-sm company"
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#companyModal"
+                                        data-name="{{ $company->name }}"
+                                        data-address="{{ $company->address }}"
+                                        data-action="{{ route('companies.update', $company->id) }}"
+                                        >
+                                            <i class="fa fa-edit"></i> 
+                                            تعديل
+                                        </button>
+                                    @endpermission
                                 </td>
                             </tr>
                         @endforeach

@@ -23,6 +23,7 @@
                             <td>
                                 <th class="border-top-0">خيارات</th>
                                 <td>
+                                    @permission('customers-update')
                                     <button 
                                     class="btn btn-warning btn-sm update customer"
                                     data-bs-toggle="modal" 
@@ -35,6 +36,7 @@
                                         <i class="fa fa-edit"></i> 
                                         تعديل
                                     </button>
+                                    @endpermission
                                 </td>
                             </td>
                         </tr>
