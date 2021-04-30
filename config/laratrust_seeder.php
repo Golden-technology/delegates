@@ -18,6 +18,8 @@ return [
             'customers'     => 'c,r,u,d',
             'orders'        => 'c,r,u,d',
             'companies'     => 'c,r,u,d',
+            'items'         => 'c,r,u,d',
+            'dashboard'     => 'r',
         ],
     ],
 

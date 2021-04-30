@@ -39,6 +39,15 @@
                     </a>
                 </li>
                 @endpermission
+                @permission('items-read')
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('items.index') }}"
+                        aria-expanded="false">
+                        <i class="fa fa-book" aria-hidden="true"></i>
+                        <span class="hide-menu">الاصناف</span>
+                    </a>
+                </li>
+                @endpermission
                 @permission('users-read')
                 <li class="sidebar-item">
                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('users.index') }}"
