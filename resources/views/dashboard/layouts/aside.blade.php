@@ -21,21 +21,21 @@
                     </a>
                 </li>
                 @endpermission
-                @permission('customers-read')
-                <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('customers.index') }}"
-                        aria-expanded="false">
-                        <i class="fa fa-table" aria-hidden="true"></i>
-                        <span class="hide-menu">العملاء</span>
-                    </a>
-                </li>
-                @endpermission
                 @permission('delegates-read')
                 <li class="sidebar-item">
                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('delegates.index') }}"
                         aria-expanded="false">
                         <i class="fa fa-font" aria-hidden="true"></i>
                         <span class="hide-menu">المناديب</span>
+                    </a>
+                </li>
+                @endpermission
+                @permission('customers-read')
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('customers.index') }}"
+                        aria-expanded="false">
+                        <i class="fa fa-table" aria-hidden="true"></i>
+                        <span class="hide-menu">العملاء</span>
                     </a>
                 </li>
                 @endpermission
