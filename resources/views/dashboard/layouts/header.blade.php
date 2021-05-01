@@ -18,18 +18,25 @@
     <!-- Custom CSS -->
     <link href="{{ asset('plugins/bower_components/chartist/dist/chartist.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css')}}">
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;500;800&display=swap" rel="stylesheet">
+
     <!-- Custom CSS -->
     <link href="{{asset('css/style.min.css')}}" rel="stylesheet">
 
     <style>
         * {
             direction: rtl;
+            font-family: 'Tajawal', sans-serif;
         }
         
         #main-wrapper[data-layout=vertical][data-sidebartype=full] .page-wrapper {
             margin-left: unset;
             margin-right: 240px;
         }
+
+        /* #main-wrapper.show-sidebar .left-sidebar{right:0} */
 
         @media max-width(900px) {
             .page-wrapper {
@@ -38,12 +45,7 @@
             }
         }
 
-        @media (max-width: 767px) {
-            #main-wrapper[data-sidebartype=mini-sidebar] .left-sidebar {
-                right: -240px;
-                left: 0
-            }
-        }
+        @media (max-width: 767px) {}
         .modal-header .btn-close {
             margin: unset
             
