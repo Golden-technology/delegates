@@ -21,6 +21,10 @@ return [
             'items'         => 'c,r,u,d',
             'dashboard'     => 'r',
         ],
+
+        'delegates' => [
+            'customers'     => 'c,r,u',
+        ],
     ],
 
     'permissions_map' => [

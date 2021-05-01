@@ -25,12 +25,24 @@
         * {
             direction: rtl;
         }
+        
         #main-wrapper[data-layout=vertical][data-sidebartype=full] .page-wrapper {
-            margin-left: unset
-        }
-        .page-wrapper {
             margin-left: unset;
-            margin-right : 240px;
+            margin-right: 240px;
+        }
+
+        @media max-width(900px) {
+            .page-wrapper {
+                margin-left: unset;
+                margin-right : 240px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            #main-wrapper[data-sidebartype=mini-sidebar] .left-sidebar {
+                right: -240px;
+                left: 0
+            }
         }
         .modal-header .btn-close {
             margin: unset

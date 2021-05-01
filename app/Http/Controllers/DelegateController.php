@@ -47,13 +47,14 @@ class DelegateController extends Controller
 
         return DB::transaction(function () use($request) {
             $delegate = Delegate::create($request->all());
-    
             $user = User::create([
                 'name'      => $delegate->name,
                 'phone'     => $delegate->phone,
                 'delegate_id' => $delegate->id,
                 'password'  => Hash::make(123456),
             ]);
+
+            $user->attachRole('delegates');
 
             return back()->with('success', 'تمت العملية');
         });
