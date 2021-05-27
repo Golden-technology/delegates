@@ -39,6 +39,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('items', ItemController::class);
     Route::resource('orders', OrderController::class);
     Route::post('profile', [UserController::class, 'profile'])->name('profile');
+    Route::get('search/{name}', [CustomerController::class, 'search']);
 });
 
 Auth::routes();

@@ -54,6 +54,25 @@
         .box-title button , .box-title a {
             float: left !important
         }
+
+        #search-result {
+            position: absolute;
+            background-color: #ebebec;
+            left: 5%;
+            width: 18%;
+            padding: 15px;
+            top: 46px;
+            border-radius: 10px;
+            display: none
+        }
+
+        #search-result p {
+            border-bottom: 1px solid #cecece;
+        }
+
+        #search-result p a {
+            color: #000
+        }
     </style>
 
 </head>

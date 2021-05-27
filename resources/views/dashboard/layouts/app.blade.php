@@ -60,11 +60,15 @@
                     <!-- ============================================================== -->
                     <li class=" in">
                         <form action="{{ route('customers.index') }}" role="search" class="app-search d-none d-md-block me-3">
-                            <input value="{{ request()->name }}" type="text" name="name" placeholder="بحث..." class="form-control mt-0">
+                            <input autocomplete="off" id="search" value="{{ request()->name }}" type="text" name="name" placeholder="بحث..." class="form-control mt-0">
                             <a href="" class="active">
                                 <i class="fa fa-search"></i>
                             </a>
                         </form>
+
+                        <div id="search-result">
+                            
+                        </div>
                     </li>
                     <!-- ============================================================== -->
                     <!-- User profile and search -->
@@ -219,4 +223,32 @@
 @endif
 
 @stack('js')
+
+
+
+<script>
+    $("#search").keyup(function() {
+
+        if($('#search').val()) {
+            fetch('{{ url("search") }}' + '/' + $('#search').val())
+            .then(response => response.json())
+            .then(data => {
+                if(data) {
+                    $("#search-result").html('')
+                    data.forEach(customer => {
+                        $("#search-result").css('display' , 'block')
+                        var p = `
+                            <p><a href="{{ url("customers") }}`+ "/" + customer['id'] +`">`+ customer['name']  +`</a></p>
+                        `
+
+                        $("#search-result").append(p)
+                    });
+                }
+            })
+            .catch((error) => {
+            console.error('Error:', error);
+            });
+        }
+    });
+</script>
 </body>

@@ -65,7 +65,10 @@ class OrderController extends Controller
      */
     public function edit(Order $order)
     {
-        return view('dashboard.orders.edit', compact('order'));
+        $customers = Customer::all();
+        $types = Order::TYPES;
+        $status = Order::STATUS;
+        return view('dashboard.orders.edit', compact('order' , 'customers' , 'types', 'status'));
     }
 
     /**

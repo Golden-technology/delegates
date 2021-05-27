@@ -107,4 +107,10 @@ class CustomerController extends Controller
     {
         //
     }
+
+    public function search($name)
+    {
+        $customers = Customer::where('name', 'like', '%'. $name .'%')->limit(5)->get();
+        return response()->json($customers);
+    }
 }
