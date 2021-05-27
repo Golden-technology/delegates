@@ -3,9 +3,12 @@
 use App\Models\Company;
 use App\Models\Customer;
 use App\Models\Delegate;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DelegateController;
@@ -34,6 +37,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('delegates', DelegateController::class);
     Route::resource('users', UserController::class);
     Route::resource('items', ItemController::class);
+    Route::resource('orders', OrderController::class);
     Route::post('profile', [UserController::class, 'profile'])->name('profile');
 });
 

@@ -12,6 +12,15 @@
                         <span class="hide-menu">لوحة التحكم</span>
                     </a>
                 </li>
+                @permission('orders-read')
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('orders.index') }}"
+                        aria-expanded="false">
+                        <i class="fa fa-list" aria-hidden="true"></i>
+                        <span class="hide-menu">الطلبات</span>
+                    </a>
+                </li>
+                @endpermission
                 @permission('companies-read')
                 <li class="sidebar-item">
                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('companies.index') }}"

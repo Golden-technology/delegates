@@ -10,4 +10,9 @@ class Customer extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'phone', 'address', 'company_id', 'status'];
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
 }

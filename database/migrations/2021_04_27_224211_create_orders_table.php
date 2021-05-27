@@ -16,10 +16,10 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('customer_id')->references('id')->on('customers');
-            $table->foreignId('company_id')->references('id')->on('companies');
-            $table->foreignId('delegate_id')->references('id')->on('delegates');
-            $table->text('notes');
-            $table->string('status');
+            $table->foreignId('delegate_id')->nullable()->references('id')->on('delegates');
+            $table->string('type')->nullable();
+            $table->string('status')->nullable();
+            $table->text('notes')->nullable();
             $table->timestamps();
         });
     }
