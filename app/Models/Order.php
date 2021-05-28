@@ -11,21 +11,25 @@ class Order extends Model
 
     // constant types 
     const TYPE_PRICES = "عرض اسعار";
-    const TYPE_RUN = "تنفيذ";
+    const TYPE_RUN = "تم لتنفيذ";
     const TYPE_INITIAL = "فاتورة مبدئية";
+    const TYPE_OTHER = "اخري";
 
     const TYPES = [
         self::TYPE_PRICES,
         self::TYPE_RUN,
-        self::TYPE_INITIAL
+        self::TYPE_INITIAL,
+        self::TYPE_OTHER
     ];
 
 
     // constant status 
+    const STATUS_WAITTING = "في لانتظار";
     const STATUS_DONE = "تم الاتفاق";
     const STATUS_CANCEL = "تم الالغاء";
 
     const STATUS = [
+        self::STATUS_WAITTING,
         self::STATUS_DONE,
         self::STATUS_CANCEL
     ];

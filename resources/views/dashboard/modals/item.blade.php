@@ -24,6 +24,10 @@
                         <label for="message-text" class="col-form-label">سعر البيع:</label>
                         <input type="number" class="form-control" name="price" step="0.1">
                     </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">ملاحظات : </label>
+                        <textarea class="form-control" name="notes"></textarea>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">اغلاق</button>
@@ -46,6 +50,7 @@
             $('#itemModal form input[name="quantity"]').val($(this).data('quantity'))
             $('#itemModal form input[name="cost"]').val($(this).data('cost'))
             $('#itemModal form input[name="price"]').val($(this).data('price'))
+            $('#itemModal form textarea[name="notes"]').val($(this).data('notes'))
         }
         else {
             $('#itemModal form').attr('action', '{{ route("items.store") }}')
@@ -55,6 +60,8 @@
             $('#itemModal form input[name="quantity"]').val('')
             $('#itemModal form input[name="cost"]').val('')
             $('#itemModal form input[name="price"]').val('')
+            $('#itemModal form textarea[name="notes"]').val('')
+
         }
     })
 </script>

@@ -23,13 +23,13 @@
                             <th class="border-top-0">رقم الهاتف</th>
                             <th class="border-top-0">نوع الطلب</th>
                             <th class="border-top-0">الحالة</th>
-                            <th class="border-top-0">تاريخ الانشاء</th>
+                            <th class="border-top-0">اخر زيارة</th>
                             <th class="border-top-0">خيارات</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($orders as $order)
-                            <tr>
+                            <tr class="{{ getClass($order->status) }}">
                                 <td>{{ $loop->index + 1 }}</td>
                                 <td>{{ $order->customer->name }}</td>
                                 <td>{{ $order->customer->phone }}</td>

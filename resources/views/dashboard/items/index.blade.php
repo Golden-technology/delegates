@@ -24,6 +24,7 @@
                             <th class="border-top-0">الكمية</th>
                             <th class="border-top-0">التكلفة</th>
                             <th class="border-top-0">سعر البيع</th>
+                            <th class="border-top-0"> ملاحظات</th>
                             <th class="border-top-0">خيارات</th>
                         </tr>
                     </thead>
@@ -35,6 +36,7 @@
                                 <td>{{ $item->quantity }}</td>
                                 <td>{{ $item->cost }}</td>
                                 <td>{{ $item->price }}</td>
+                                <td>{{ $item->notes }}</td>
                                 <td>
                                     {{-- @permission('items-read')
                                     <a href="{{ route('items.show', $item->id) }}" class="btn btn-info btn-sm text-white"><i class="fa fa-eye"></i> عرض</a>
@@ -49,6 +51,7 @@
                                     data-cost="{{ $item->cost }}"
                                     data-price="{{ $item->price }}"
                                     data-action="{{ route('items.update', $item->id) }}"
+                                    data-notes="{{ $item->notes }}"
                                     >
                                         <i class="fa fa-edit"></i> 
                                         تعديل
