@@ -1,6 +1,8 @@
 @extends('dashboard.layouts.app')
 
 @section('content')
+
+<x-search types="type" status="status" customers="customers" delegates="delegates" date="date"></x-search>
 <div class="row">
     <div class="col-sm-12">
         <div class="white-box">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use App\Models\Order;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -13,9 +14,18 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $orders = Order::paginate();
+        $from = Carbon::parse($request->from)->startOfDay() ?? now()->subDay(2)->startOfDay();
+        $to = Carbon::parse($request->to)->endOfDay() ?? now()->endOfDay();
+
+        $orders = Order::
+        when($request->type != null , function($q) use($request) { if($request->type != "all"){ return $q->where('type' , $request->type); }else{return $q;}})
+        ->when($request->status != null , function($q) use($request) { if($request->status != "all"){return $q->where('status' , $request->status);}else{return $q;} })
+        ->when($request->customer != null , function($q) use($request) {if($request->customer != "all"){$q->where('customer_id' , $request->customer);}else{return $q;}})
+        ->when($request->delegate != null , function($q) use($request) {if($request->customer != "all"){return $q->where('delegate_id' , $request->delegate);}else{return $q;}})
+        ->whereBetween('created_at' , [$from , $to])
+        ->paginate();
         return view('dashboard.orders.index', compact('orders'));
     }
 
